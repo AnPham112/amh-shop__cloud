@@ -4,13 +4,11 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const fileUpload = require('express-fileupload')
 const cookieParser = require('cookie-parser')
-// const bodyParser = require('body-parser')
+const path = require('path')
 
 // Configure NodeJs server
 const app = express()
 app.use(express.json())
-// app.use(bodyParser.urlencoded({ extended: false }))
-// app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors())
 
@@ -33,6 +31,13 @@ mongoose.connect(URI,
     console.log('Connected to MongoDB')
   }
 )
+
+if (process.env.PORT === 'production') {
+  app.use(express.static('client/build'))
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 
 // Set port
 const PORT = process.env.PORT || 5000
