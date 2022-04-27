@@ -1,0 +1,11 @@
+.policy-card {
+  &__info {
+    margin-top: 1.6rem;
+    &__description {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+  }
+}

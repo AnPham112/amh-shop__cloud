@@ -1,0 +1,62 @@
+.products {
+  background-color: $main-bg;
+  padding-top: 16px;
+  &__filter__menu {
+    width: 100%;
+    min-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    &__label {
+      color: #fff;
+    }
+    &__select,
+    &__search__input {
+      height: 40px;
+      border-radius: 3px;
+    }
+    &__search__input {
+      padding: 0 5px;
+      outline: none;
+      border: none;
+      flex-grow: 1;
+      margin: 0 8px;
+    }
+    &__sort {
+      &__label {
+        color: #fff;
+      }
+      &__select {
+        height: 40px;
+        border-radius: 3px;
+      }
+    }
+
+    @include mobile {
+      span {
+        display: none;
+      }
+      flex-direction: column;
+      // height: 100%;
+      &__sort {
+        width: 100%;
+        &__select {
+          width: 100%;
+        }
+      }
+      &__select,
+      &__search__input {
+        display: block;
+        width: 100%;
+      }
+      &__search__input {
+        margin: 8px 0;
+      }
+      &__container {
+        width: 100%;
+      }
+    }
+  }
+}

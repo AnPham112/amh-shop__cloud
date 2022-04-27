@@ -1,0 +1,126 @@
+.cart {
+  $pt: 16px;
+  padding-top: $pt;
+  min-height: calc(100vh - #{$header-height} - #{$pt});
+  overflow-x: auto;
+  &__table {
+    background-color: #fff;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 500px;
+    width: 100%;
+    border-radius: 6px;
+    border: 3px solid #fff;
+    overflow: hidden;
+    thead tr {
+      text-align: left;
+      font-weight: 600;
+      font-size: 16px;
+      border-bottom: 2px solid $main-bg;
+      th {
+        padding: 8px;
+        letter-spacing: 0.6px;
+      }
+    }
+    tbody tr {
+      td {
+        padding: 12px 8px;
+      }
+    }
+    tfoot {
+      background-color: $main-bg;
+      color: $main-color;
+      tr {
+        td {
+          padding: 8px;
+          font-size: 20px;
+          font-weight: 600;
+          text-align: right;
+        }
+      }
+    }
+    &__item {
+      &__info__box {
+        width: 25%;
+      }
+      &__info__description__box {
+        width: 30%;
+      }
+      &__info__price__box {
+        width: 5%;
+      }
+      &__info__quantity__control__box {
+        width: 20%;
+      }
+      &__info {
+        display: flex;
+        align-items: center;
+        &__image__container {
+          $dimension: 130px;
+          width: $dimension;
+          height: $dimension;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          & img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+          }
+        }
+        &__title {
+          margin-left: 8px;
+          font-size: 15px;
+          font-weight: 600;
+        }
+        &__description {
+          color: $main-bg;
+        }
+        &__price {
+          color: #f53838;
+          font-size: 1rem;
+          font-weight: 600;
+        }
+      }
+      &__quantity__control {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+          width: 30px;
+          height: 30px;
+          border-radius: 15px;
+          border: none;
+          border: 1px solid #c2c2c2;
+          background-color: transparent;
+        }
+        span {
+          margin: 0 6px;
+          text-align: center;
+        }
+      }
+      &__icon {
+        color: #ff0000;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 3px;
+      }
+    }
+
+    &__heading__qty {
+      text-align: center;
+    }
+  }
+  &__total {
+    &__price {
+      text-align: center !important;
+    }
+  }
+  &__payment {
+    margin-top: 8px;
+    display: flex;
+
+    justify-content: flex-end;
+  }
+}

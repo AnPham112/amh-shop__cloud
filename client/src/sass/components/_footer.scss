@@ -1,0 +1,74 @@
+.footer {
+  padding: 1.6rem 0 0 0;
+  border-top: 1px solid $main-color;
+  border-bottom: 1px solid $main-color;
+  &__content {
+    @include tabletAndMobile {
+      padding-bottom: 24px;
+    }
+  }
+  &__heading {
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: $main-color;
+    @include mobile {
+      text-align: center;
+    }
+  }
+  &__list {
+    list-style: none;
+    padding-left: 0;
+    &__item {
+      @include mobile {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__item__link {
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: $txt-main-color;
+    padding: 2px 0;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+
+  &__item__icon {
+    font-size: 1.2rem;
+    margin: 0 8px 0 0;
+  }
+  &__download {
+    display: flex;
+    align-items: center;
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+  &__download-apps {
+    flex: 1;
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__download-app-img {
+    flex: 1;
+  }
+  &__download-app-link {
+    text-decoration: none;
+    color: transparent;
+  }
+  &__copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    color: $main-color;
+  }
+}

@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none; //not allow to select text
+}
+
+// html {
+//   // font-size: 62.5%;
+// }
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1620px;
+  padding: 0 50px;
+  margin: auto;
+  background-color: $main-bg;
+  @include tablet {
+    padding: 0 20px;
+  }
+  @include mobile {
+    padding: 0 10px;
+  }
+}
+
+.container.full-screen {
+  min-height: calc(100vh - ((#{$header-height} + #{$border-width})));
+  @include tablet {
+    min-height: calc(100vh - (#{$header-tablet-height} + #{$border-width}));
+  }
+  @include mobile {
+    min-height: calc(100vh - (#{$header-mobile-height} + #{$border-width}));
+  }
+}
+.container.center {
+  min-height: calc(100vh - ((#{$header-height} + #{$border-width})));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include tablet {
+    min-height: calc(100vh - (#{$header-tablet-height} + #{$border-width}));
+  }
+  @include mobile {
+    min-height: calc(100vh - (#{$header-mobile-height} + #{$border-width}));
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 310;
+}
+
+.main {
+  margin-top: calc(#{$header-height} + #{$border-width});
+  min-height: 100vh;
+  background-color: $main-bg;
+  @include tablet {
+    margin-top: calc(#{$header-tablet-height} + #{$border-width});
+  }
+  @include mobile {
+    margin-top: calc(#{$header-mobile-height} + #{$border-width});
+  }
+}
+
+// Button color
+@each $color, $val in $colors {
+  .btn--bg-#{$color} {
+    background-color: $val;
+  }
+  .btn--#{$color} {
+    color: $val;
+  }
+}
+// Button shadow color
+@each $color, $val in $colors {
+  .btn-shadow--#{$color} {
+    box-shadow: 0 8px 16px $val;
+  }
+}

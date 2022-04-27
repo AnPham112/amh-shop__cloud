@@ -1,0 +1,49 @@
+.categories {
+  padding: 32px 0;
+  overflow-x: auto;
+  &__heading {
+    @include flex(center, space-between);
+    margin-bottom: 16px;
+    @include mobile {
+      flex-direction: column;
+      @include flex(start, center);
+    }
+  }
+  &__table {
+    background-color: #fff;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 500px;
+    width: 100%;
+    border-radius: 6px;
+    border: 3px solid #fff;
+    overflow: hidden;
+    thead tr {
+      text-align: left;
+      font-weight: 600;
+      font-size: 16px;
+      border-bottom: 2px solid $main-bg;
+      th {
+        padding: 8px;
+        letter-spacing: 0.6px;
+      }
+    }
+    tbody tr {
+      td {
+        padding: 12px 8px;
+      }
+    }
+    tfoot {
+      background-color: $main-bg;
+      color: $main-color;
+      tr {
+        td {
+          padding: 8px;
+          font-size: 20px;
+          font-weight: 600;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

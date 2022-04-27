@@ -1,0 +1,29 @@
+$main-bg: #181e21;
+$main-color: #efdf9a;
+
+$txt-main-color: #bababa;
+$txt-second-color: #5c6062;
+$txt-white: #fff;
+
+$btn-main-color: $main-color;
+$btn-second-color: #f78b7c;
+$btn-third-color: #f53838;
+
+$header-height: 100px;
+$header-tablet-height: 70px;
+$header-mobile-height: 70px;
+
+$mobile-width: 600px;
+$tablet-width: 1024px;
+
+$border-width: 1px;
+
+// button color
+$colors: (
+  "blue": #0070f3,
+  "yellow": $main-color,
+  "red" : $btn-third-color,
+  "main": $main-bg,
+  "pink": $btn-second-color,
+  "white": #fff,
+)

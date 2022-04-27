@@ -1,0 +1,95 @@
+.product-item {
+  width: 100%;
+  overflow: hidden;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 8px 8px 20px rgba(92, 96, 98, 0.9), -8px -8px 20px rgba(92, 96, 98, 0.2),
+    inset -4px -4px 10px rgba(92, 96, 98, 0.6);
+  position: relative;
+  transition: transform 0.3s ease;
+  margin-bottom: 0.8rem;
+  &:hover {
+    transform: translateY(-0.1rem);
+  }
+  img {
+    width: 300px;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+
+  @include mobile {
+    box-shadow: none;
+  }
+  &__info {
+    padding: 0 1.6rem;
+    &__title {
+      font-size: 1.6rem;
+      margin-top: 0.8rem;
+      color: #181e21;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      text-transform: capitalize;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    &__price {
+      margin-top: 0.8rem;
+      display: block;
+      font-size: 1.4rem;
+      color: #f53838;
+      font-weight: 500;
+    }
+    &__description {
+      margin-top: 0.8rem;
+      margin-bottom: 0;
+      font-size: 1.2rem;
+      color: $txt-second-color;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+  }
+
+  &__actions {
+    padding: 1.6rem;
+    @include flex(center, space-between);
+    &__view__btn,
+    &__edit__btn {
+      display: block;
+      padding: 8px 20px;
+      border-radius: 24px;
+      text-align: center;
+    }
+    &__view__btn {
+      background-color: #0070f3;
+      color: #fff;
+    }
+    &__edit__btn {
+      background-color: #f5a623;
+      color: #fff;
+    }
+    @include mobile {
+      &__view__btn,
+      &__buy__btn,
+      &__delete__btn,
+      &__edit__btn {
+        width: 100%;
+      }
+      flex-direction: column;
+      &__view__btn,
+      &__edit__btn {
+        margin-top: 10px;
+      }
+    }
+  }
+  input {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+}

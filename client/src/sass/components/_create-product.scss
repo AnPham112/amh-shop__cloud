@@ -1,0 +1,42 @@
+.create-product {
+  padding: 1.6rem 0;
+  &__select__category {
+    padding: 0.6rem;
+    color: #333333;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+    border-radius: 6px;
+    &:focus,
+    &:hover {
+      outline: none;
+      border: 1px solid #bbbbbb;
+    }
+    option {
+      background-color: #fff;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+  }
+  &__remove__image {
+    width: 20px;
+    height: 20px;
+    background-color: #333333;
+    color: #fff;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+
+  @include mobile {
+    &__submit__btn,
+    &__select__category {
+      width: 100%;
+    }
+  }
+}

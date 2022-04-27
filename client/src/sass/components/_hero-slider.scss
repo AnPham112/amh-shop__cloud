@@ -1,0 +1,205 @@
+.hero-slider {
+  height: calc(100vh - #{$header-height});
+  max-height: 1080px;
+  overflow: hidden;
+  position: relative;
+
+  @include tablet {
+    height: calc(100vh - #{$header-tablet-height});
+  }
+  @include mobile {
+    height: calc(100vh - #{$header-mobile-height});
+  }
+
+  &__item {
+    @include flex(center, space-between);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+
+    @include tabletAndMobile {
+      flex-direction: column-reverse;
+    }
+
+    @include mobile {
+      padding-top: 0;
+    }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: visible;
+    }
+
+    &__info {
+      width: 50%;
+      @include tabletAndMobile {
+        width: 100%;
+        flex-grow: 1;
+        margin-top: 7rem;
+      }
+      @include mobile {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: 0;
+      }
+      &__title {
+        margin-bottom: 2.8rem;
+        @include tabletAndMobile {
+          margin-bottom: 1.8rem;
+        }
+      }
+
+      &__description {
+        margin-bottom: 2rem;
+        @include tabletAndMobile {
+          margin-bottom: 1.8rem;
+        }
+      }
+      &__title {
+        font-family: "Roboto", sans-serif;
+        font-weight: 600;
+        font-size: 3rem;
+        background: linear-gradient(to right, #efdf9a 6%, #f78b7c 92%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        overflow: hidden;
+        @include mobile {
+          font-size: 2.5rem;
+          text-align: center;
+        }
+      }
+      &__description {
+        color: $txt-main-color;
+        font-size: 1.2rem;
+        line-height: 2.5rem;
+        overflow: hidden;
+        @include mobile {
+          font-size: 1.1rem;
+          text-align: center;
+        }
+      }
+
+      &__description > span {
+        display: block;
+        transform: translateY(-70%);
+        transition: transform 0.6s ease;
+      }
+    }
+
+    &.active &__info {
+      &__description > span {
+        transform: translateY(0);
+      }
+    }
+    &__image {
+      flex-grow: 1;
+      position: relative;
+      height: 80%;
+      pointer-events: none;
+      @include tablet {
+        height: 40%;
+        top: 30px;
+      }
+      @include mobile {
+        display: none;
+      }
+
+      img {
+        height: 75vh;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: scale(0.6) rotate(30deg);
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        @include tabletAndMobile {
+          height: 100%;
+          position: relative;
+        }
+      }
+
+      .shape {
+        $size: 450px;
+        height: $size;
+        width: $size;
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: border-radius 14s ease;
+        animation: borderRadiusStyle 8s infinite;
+        &--pink {
+          background-color: #f78b7c;
+        }
+
+        @include tablet {
+          $size: 16rem;
+          height: $size;
+          width: $size;
+          top: 50%;
+          right: 50%;
+          transform: translate(50%, -50%);
+        }
+        @include mobile {
+          $size: 14rem;
+          height: $size;
+          width: $size;
+          top: 50%;
+          right: 50%;
+          transform: translate(50%, -50%);
+        }
+      }
+    }
+
+    &.active &__image {
+      img {
+        transform: scale(1) rotate(0deg);
+      }
+    }
+  }
+  &__control {
+    @include flex(center, center);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    &__item ~ &__item {
+      margin-left: 20px;
+    }
+    &__item {
+      @include flex(center, center);
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #bababa;
+
+      &-action:hover {
+        color: $main-color;
+      }
+    }
+    // @include mobile {
+    //   bottom: 0;
+    // }
+  }
+  &__shop__button {
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes borderRadiusStyle {
+  0% {
+    border-radius: 54% 46% 58% 42% / 29% 24% 76% 71%;
+  }
+  50% {
+    border-radius: 52% 48% 58% 42% / 43% 49% 51% 57%;
+  }
+  100% {
+    border-radius: 33% 67% 28% 72% / 51% 28% 72% 49%;
+  }
+}

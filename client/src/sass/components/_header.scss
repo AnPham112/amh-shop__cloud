@@ -1,0 +1,217 @@
+.header {
+  background-color: $main-bg;
+  height: $header-height;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  z-index: 300;
+  border-bottom: $border-width solid $main-color;
+  @include tabletAndMobile {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @include tablet {
+    height: $header-tablet-height;
+  }
+  @include mobile {
+    height: $header-mobile-height;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    font-size: 1.4rem;
+    @include tablet {
+      height: $header-tablet-height;
+    }
+    @include mobile {
+      height: $header-mobile-height;
+    }
+    @include tabletAndMobile {
+      position: relative;
+    }
+  }
+
+  &__logo {
+    flex: 1;
+    cursor: pointer;
+
+    @include tabletAndMobile {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &-img {
+      width: 65px;
+      @include mobile {
+        width: 60px;
+        position: relative;
+        top: 3px;
+      }
+    }
+    &--admin {
+      display: flex;
+      align-items: center;
+      color: $main-color;
+      h2 {
+        margin: 0 0 0 1rem;
+      }
+    }
+  }
+
+  &__menu {
+    &__item {
+      display: inline-block;
+      padding: 0 2rem;
+      margin-bottom: 0;
+      @include tabletAndMobile {
+        text-align: center;
+        padding: 2.5rem 20px;
+        display: block;
+        font-size: 24px;
+      }
+      &__link {
+        color: $txt-main-color;
+        &:hover {
+          color: $main-color;
+        }
+        @include tabletAndMobile {
+          display: block;
+        }
+
+        &__login {
+          padding: 0.8rem 1.6rem;
+          outline: 1px solid $main-color;
+          color: $main-color;
+          border-radius: 0.3rem;
+          font-weight: 500;
+          @include tabletAndMobile {
+            width: 100%;
+            display: block;
+          }
+          &:hover {
+            opacity: 0.85;
+          }
+        }
+        &__register {
+          padding: 0.8rem 1.6rem;
+          background-color: $main-color;
+          color: $main-bg;
+          border-radius: 0.3rem;
+          font-weight: 500;
+          @include tabletAndMobile {
+            width: 100%;
+            display: block;
+          }
+          &:hover {
+            opacity: 0.85;
+          }
+        }
+        &__logout {
+          padding: 0.8rem 1.6rem;
+          background-color: $main-color;
+          color: $main-bg;
+          border-radius: 0.3rem;
+
+          @include tabletAndMobile {
+            width: 100%;
+          }
+
+          &:hover {
+            opacity: 0.85;
+          }
+        }
+      }
+      &__user {
+        &__icon,
+        &__name {
+          color: $txt-main-color;
+        }
+        &__name {
+          margin-left: 6px;
+        }
+      }
+    }
+
+    &__cart {
+      position: relative;
+      font-size: 2rem;
+
+      span {
+        background-color: $btn-second-color;
+        position: absolute;
+        height: 1.8rem;
+        width: 1.8rem;
+        line-height: 1.8rem;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 1rem;
+        top: -0.8rem;
+        right: -0.5rem;
+        color: $main-bg;
+      }
+      &__icon {
+        color: #bababa;
+        &:hover {
+          color: $main-color;
+        }
+      }
+      @include tabletAndMobile {
+        margin-left: auto;
+        margin-right: 20px;
+        span {
+          height: 1.4rem;
+          width: 1.4rem;
+          line-height: 1.4rem;
+          top: -3px;
+          right: -5px;
+        }
+      }
+    }
+    &__icon {
+      color: #bababa;
+      display: none;
+      &:hover {
+        color: $main-color;
+      }
+      @include tabletAndMobile {
+        display: block;
+        margin-left: 20px;
+        position: absolute;
+      }
+    }
+
+    @include tabletAndMobile {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      left: -100%;
+      transition: all 0.5s ease;
+    }
+    @include tablet {
+      height: calc(100vh - #{$header-tablet-height});
+      top: $header-tablet-height;
+      opacity: 1;
+    }
+
+    @include mobile {
+      height: calc(100vh - #{$header-mobile-height});
+      top: $header-mobile-height;
+      opacity: 1;
+    }
+
+    &.active {
+      background-color: $main-bg;
+      left: 0;
+      opacity: 1;
+      z-index: 200;
+    }
+  }
+}

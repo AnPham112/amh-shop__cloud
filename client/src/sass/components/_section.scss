@@ -1,0 +1,13 @@
+.section {
+  padding: 5rem 3.4rem 5rem 3.4rem;
+  background-color: $main-bg;
+  &__title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: $main-color;
+  }
+  &__body {
+    margin-top: 3.2rem;
+  }
+}
